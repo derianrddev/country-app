@@ -1,0 +1,11 @@
+<h2 class="text-2xl font-semibold text-center">By Country</h2>
+
+<div class="flex justify-center">
+  <div class="basis-1/2">
+    <!-- SearchBox -->
+    <shared-search-box (onDebounce)="searchByCountry($event)" [initialValue]="initialValue" placeholder="Search by country"></shared-search-box>
+  </div>
+</div>
+
+<shared-loading-spinner *ngIf="isLoading" title="Looking for country"></shared-loading-spinner>
+<countries-country-table [countries]="countries"></countries-country-table>

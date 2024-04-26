@@ -1,0 +1,18 @@
+<h2 class="text-2xl font-semibold text-center">By Region</h2>
+
+<div class="flex justify-center">
+  <div class="basis-full text-center m-4">
+    <!-- SearchBox -->
+    <div class="block sm:inline-flex rounded-md shadow-sm" role="group">
+      <button *ngFor="let region of regions; let i = index"
+        class="px-4 py-2 m-[1px] gap-1 text-sm font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700"
+        [ngClass]="{ 'z-10 ring-2 ring-blue-700 text-blue-700': selectedRegion === region }"
+        (click)="searchByRegion(region)">
+        {{ region }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<shared-loading-spinner *ngIf="isLoading" title="Looking for region"></shared-loading-spinner>
+<countries-country-table [countries]="countries"></countries-country-table>

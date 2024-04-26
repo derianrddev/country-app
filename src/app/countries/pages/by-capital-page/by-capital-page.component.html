@@ -1,0 +1,10 @@
+<h2 class="text-2xl font-semibold text-center">By Capital</h2>
+
+<div class="flex justify-center">
+  <div class="basis-full sm:basis-1/2 mx-4">
+    <shared-search-box (onDebounce)="searchByCapital($event)" [initialValue]="initialValue" placeholder="Search by capital"></shared-search-box>
+  </div>
+</div>
+
+<shared-loading-spinner *ngIf="isLoading" title="Looking for capital"></shared-loading-spinner>
+<countries-country-table [countries]="countries"></countries-country-table>

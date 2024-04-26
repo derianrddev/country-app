@@ -1,0 +1,67 @@
+
+<div *ngIf="countries.length === 0; else table" class="flex items-center p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50" role="alert">
+  <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+  </svg>
+  <span class="sr-only">Info</span>
+  <div>
+    <span class="font-medium">Warning alert!</span> There are no countries to show.
+  </div>
+</div>
+
+<ng-template #table>
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-4 mx-4 xl:mx-8">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                  #
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Icon
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Flag
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Capital
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Population
+                </th>
+                <th scope="col" class="px-6 py-3">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let country of countries; let i = index" class="bg-white border-b hover:bg-gray-50">
+                <td class="px-6 py-4">
+                  {{ i + 1 }}
+                </td>
+                <td class="px-6 py-4">
+                  {{ country.flag }}
+                </td>
+                <td class="px-6 py-4">
+                  <img [src]="country.flags.svg" [alt]="country.name.common">
+                </td>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                  {{ country.name.common }}
+                </th>
+                <td class="px-6 py-4">
+                  {{ country.capital }}
+                </td>
+                <td class="px-6 py-4">
+                  {{ country.population | number }}
+                </td>
+                <td class="px-6 py-4 text-right">
+                    <a [routerLink]="[ '/countries/by', country.cca3]" class="font-medium text-blue-600 hover:underline">Info</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+</ng-template>
+
