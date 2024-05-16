@@ -1,6 +1,6 @@
 # Country App
 
-Application to search for countries by capital city, country name or region (continent) and display their information.
+Application to search for countries by capital city, country name or region (continent) and display their information. Based on a project that is part of the Angular course "Angular: From zero to expert" by Fernando Herrera.
 
 ## Technologies
 
